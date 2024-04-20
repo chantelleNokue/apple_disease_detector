@@ -1,4 +1,5 @@
 import 'package:apple_diseases_detector/screens/fruitDetection/home.dart';
+import 'package:apple_diseases_detector/screens/home2.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/homeMain.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreenAccent),
         useMaterial3: true,
       ),
-      home: const Home(),
+      home: const TenHome(),
     );
   }
 }

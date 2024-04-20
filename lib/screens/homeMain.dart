@@ -1,4 +1,5 @@
 
+import 'package:apple_diseases_detector/customeAnimations/fade_in_slide.dart';
 import 'package:apple_diseases_detector/screens/fruitDetection/home.dart';
 import 'package:apple_diseases_detector/screens/leafDetection/homeLeafDetection.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../constants/colors.dart';
 import '../utils/asset_utils/assets_util.dart';
+import 'home2.dart';
 
 
 
@@ -80,80 +82,83 @@ class _HomeState extends State<Home> {
           ],
         ),
 
-        bottomNavigationBar: Container(
-          padding: EdgeInsets.all(20),
-          height: 320,
-          child: Column(
-            children: [
-              Text(
-                  "What do you wanna do ?",
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
+        bottomNavigationBar: FadeInSlide(
+          duration: 1,
+          child: Container(
+            padding: EdgeInsets.all(20),
+            height: 320,
+            child: Column(
+              children: [
+                Text(
+                    "What do you wanna do ?",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.poppins(
+                        color: Pallete.onePrimaryColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold
+                    )
+                ),
+
+                Text(
+                    "Please choose how you'd like to use our app",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.poppins(
                       color: Pallete.onePrimaryColor,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold
-                  )
-              ),
+                      fontSize: 12,
+                    )
+                ),
 
-              Text(
-                  "Please choose how you'd like to use our app",
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
-                    color: Pallete.onePrimaryColor,
-                    fontSize: 12,
-                  )
-              ),
-
-              SizedBox(
-                height: 140,
-              ),
-              Column(
-                children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: roleWidget(
-                            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) =>HomePageLeaf())),
-                            color:   Pallete.onePrimaryColor,
-                            textIconColour:  Colors.white ,
-                            center: "Detect",
-                            bottom: "Leaf",
-                            icon: Icons.library_books
+                SizedBox(
+                  height: 140,
+                ),
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: roleWidget(
+                              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) =>HomePageLeaf())),
+                              color:   Pallete.onePrimaryColor,
+                              textIconColour:  Colors.white ,
+                              center: "Detect",
+                              bottom: "Leaf",
+                              icon: Icons.library_books
+                          ),
                         ),
-                      ),
 
-                      SizedBox(
-                        width: 8,
-                      ),
-
-                      Expanded(
-                        child: roleWidget(
-                            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) =>HomePage())),
-                            color:   Pallete.onePrimaryColor,
-                            textIconColour:  Colors.white ,
-                            center: "Detect",
-                            bottom: "Fruit",
-                            icon: Icons.library_books
+                        SizedBox(
+                          width: 8,
                         ),
-                      ),
-                    ],
-                  ),
+                        // HomePage
+                        Expanded(
+                          child: roleWidget(
+                              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) =>TenHome())),
+                              color:   Pallete.onePrimaryColor,
+                              textIconColour:  Colors.white ,
+                              center: "Detect",
+                              bottom: "Fruit",
+                              icon: Icons.library_books
+                          ),
+                        ),
+                      ],
+                    ),
 
-                  SizedBox(
-                    height: 8,
-                  ),
+                    SizedBox(
+                      height: 8,
+                    ),
 
 
-                ],
-              ),
+                  ],
+                ),
 
-              SizedBox(
-                height: 12,
-              ),
+                SizedBox(
+                  height: 12,
+                ),
 
 
 
-            ],
+              ],
+            ),
           ),
         ),
       ),
