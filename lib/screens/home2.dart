@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../constants/colors.dart';
 import '../utils/asset_utils/assets_util.dart';
 import 'leafDetection/homeLeafDetection.dart';
+import 'results/results.dart';
 
 class TenHome extends StatefulWidget {
   const TenHome({super.key});
@@ -134,7 +135,7 @@ class _TenHomeState extends State<TenHome> with SingleTickerProviderStateMixin {
                   ),
 
                   const SizedBox(
-                    height: 120,
+                    height: 100,
                   ),
 
                   FadeInSlide(
@@ -219,7 +220,28 @@ class _TenHomeState extends State<TenHome> with SingleTickerProviderStateMixin {
                                   height: 8,
                                 ),
 
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: roleWidget(
+                                          onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) =>Results())),
+                                          color:   Pallete.onePrimaryColor,
+                                          textIconColour:  Colors.white ,
+                                          center: "View",
+                                          bottom: "Results",
+                                          icon: Icons.library_books
+                                      ),
+                                    ),
 
+                                    SizedBox(
+                                      width: 8,
+                                    ),
+                                    // HomePage
+                                    Expanded(
+                                      child: SizedBox()
+                                    ),
+                                  ],
+                                ),
                               ],
                             ),
 

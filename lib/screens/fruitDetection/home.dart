@@ -59,7 +59,6 @@ class _HomePageState extends State<HomePage> {
       detecting = true;
     });
 
-
     var request = http.MultipartRequest(
       'POST',
       Uri.parse('http://192.168.100.14:5080/detect'),
@@ -82,39 +81,39 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Future<String> sendImage2(File selectedImage) async {
-    setState(() {
-      detecting = true;
-    });
-    var formData = FormData();
-    formData.files.add(MapEntry(
-      'image',
-      await MultipartFile.fromFile(selectedImage.path, filename: 'image'),
-    ));
-
-    final dio = Dio();
-    dio.options.connectTimeout = Duration(seconds: 10);
-    dio.options.headers['Content-Type'] = 'application/json';
-    try {
-      final response = await dio.post(
-        'http://192.168.100.14:5080/detect',
-        data: formData,
-      );
-      print('Status Code: ${response.statusCode}');
-
-      if (response.statusCode == 200) {
-        print('Successfully sent to the database');
-        print('Status Code: ${response.statusCode}');
-        return response.data.toString();
-      } else {
-        print(response.statusMessage);
-        return 'Failed';
-      }
-    } catch (e) {
-      print('Error: $e');
-      return 'Failed';
-    }
-  }
+  // Future<String> sendImage2(File selectedImage) async {
+  //   setState(() {
+  //     detecting = true;
+  //   });
+  //   var formData = FormData();
+  //   formData.files.add(MapEntry(
+  //     'image',
+  //     await MultipartFile.fromFile(selectedImage.path, filename: 'image'),
+  //   ));
+  //
+  //   final dio = Dio();
+  //   dio.options.connectTimeout = Duration(seconds: 10);
+  //   dio.options.headers['Content-Type'] = 'application/json';
+  //   try {
+  //     final response = await dio.post(
+  //       'http://192.168.100.14:5080/detect',
+  //       data: formData,
+  //     );
+  //     print('Status Code: ${response.statusCode}');
+  //
+  //     if (response.statusCode == 200) {
+  //       print('Successfully sent to the database');
+  //       print('Status Code: ${response.statusCode}');
+  //       return response.data.toString();
+  //     } else {
+  //       print(response.statusMessage);
+  //       return 'Failed';
+  //     }
+  //   } catch (e) {
+  //     print('Error: $e');
+  //     return 'Failed';
+  //   }
+  // }
 
 
   @override
